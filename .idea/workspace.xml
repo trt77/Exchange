@@ -6,11 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74bb79c7-bd50-497e-a5ba-7c14a26ccc8b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="74bb79c7-bd50-497e-a5ba-7c14a26ccc8b" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exchange.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Exchange.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CurrencyPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrencyPair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CurrencyPairWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrencyPairWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CurrencyPairWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrencyPairWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Exchange.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exchange.form" afterDir="false" />
@@ -66,7 +63,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="JAR Application.Exchange.jar">
+  <component name="RunManager" selected="Application.Exchange">
     <configuration name="Exchange" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <log_file checked="false" alias="connection" path="$USER_HOME$/AppData/Local/JetBrains/IntelliJIdea2022.2/database-log/database.0.log" skipped="false" />
       <option name="MAIN_CLASS_NAME" value="Exchange" />
@@ -83,8 +80,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.Exchange.jar" />
         <item itemvalue="Application.Exchange" />
+        <item itemvalue="JAR Application.Exchange.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -103,8 +100,18 @@
       <workItem from="1672355648457" duration="708000" />
       <workItem from="1673046523065" duration="644000" />
       <workItem from="1673114681382" duration="115000" />
-      <workItem from="1673568864522" duration="353000" />
+      <workItem from="1673568864522" duration="714000" />
+      <workItem from="1673860554300" duration="990000" />
+      <workItem from="1673861581444" duration="185000" />
     </task>
+    <task id="LOCAL-00001" summary="commit">
+      <created>1673569252064</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673569252080</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,5 +127,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>

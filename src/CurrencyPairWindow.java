@@ -20,7 +20,7 @@ public class CurrencyPairWindow extends JFrame {
     static JFrame frame1;
 
     public static void run() {
-        frame1 = new JFrame("CurrencyPairWindow");
+        frame1 = new JFrame("Edytor Par Walut");
         frame1.setContentPane(new CurrencyPairWindow().MainPairPanel);
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame1.pack();

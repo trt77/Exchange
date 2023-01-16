@@ -35,7 +35,7 @@ public class Exchange extends JFrame{
     private static ArrayList<String> listString = new ArrayList<String>();
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Exchange");
+        JFrame frame = new JFrame("Kantor wymiany walut");
         frame.setContentPane(new Exchange().MainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
