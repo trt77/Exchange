@@ -1,9 +1,16 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Exchange:jar">
+  <artifact type="jar" build-on-make="true" name="Exchange:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Exchange_jar</output-path>
+    <properties id="ant-preprocessing">
+      <options enabled="true" />
+    </properties>
     <root id="archive" name="Exchange.jar">
-      <element id="module-output" name="Exchange" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-source" name="Exchange" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/postgresql-42.5.1.jar" path-in-jar="/" />
+      <element id="module-output" name="Exchange" />
     </root>
   </artifact>
 </component>

@@ -1,9 +1,11 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.sql.*;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 public class Exchange extends JFrame{
@@ -41,7 +43,7 @@ public class Exchange extends JFrame{
         frame.pack();
         frame.setVisible(true);
     }
-
+/*
     static Connection con;
     static PreparedStatement pst;
 
@@ -52,11 +54,12 @@ public class Exchange extends JFrame{
             System.out.println("Connection success");
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();
+            System.out.println("Connection failed");
         }
     }
-
+*/
     public Exchange() {
-    connect();
+    ConnectionDetails.connect();
 
         databaseCrudAddButton.addActionListener(new ActionListener() {
             @Override
@@ -64,7 +67,7 @@ public class Exchange extends JFrame{
                 CurrencyPairWindow.run();
                 try {
 
-                    Statement st = con.createStatement();
+                    Statement st = ConnectionDetails.con.createStatement();
                     String query = "SELECT * FROM currency_pairs.pairs_data";
                     ResultSet rs = st.executeQuery(query);
                     ResultSetMetaData rsmd = rs.getMetaData();
@@ -97,7 +100,7 @@ public class Exchange extends JFrame{
                 mainTabbedPane.setSelectedIndex(1);
                 try {
 
-                    Statement st = con.createStatement();
+                    Statement st = ConnectionDetails.con.createStatement();
                     String query = "SELECT * FROM currency_pairs.pairs_data";
                     ResultSet rs = st.executeQuery(query);
                     ResultSetMetaData rsmd = rs.getMetaData();
@@ -145,7 +148,7 @@ public class Exchange extends JFrame{
                 query+="'"+currency1+"' AND currencyto='" + currency2 + "';";
 
                 try {
-                    Statement stmt = con.createStatement();
+                    Statement stmt = ConnectionDetails.con.createStatement();
                     ResultSet rs = stmt.executeQuery(query);
 
                     if(!rs.next()) {
@@ -155,11 +158,12 @@ public class Exchange extends JFrame{
                         System.out.println("Running SQL query: " + query);
                         rate = rs.getDouble("rate");
                         sum = rate*value;
-                        String show = new CurrencyPair(currency1,currency2,rate,sum).toString();
-                        String message = "Według wprowadzonego kursu " + currency1 + "/" + currency2 + ": " + rate + " należy wydać: " + sum;
+                        double sumRounded = Math.round(sum * 100.0) / 100.0;
+                        String show = new CurrencyPair(currency1,currency2,rate,sumRounded).toString();
+                        String message = "Według wprowadzonego kursu " + currency1 + "/" + currency2 + ": " + rate + " należy wydać: " + sumRounded;
                         JOptionPane.showMessageDialog(null, message ,"Alert" , JOptionPane.PLAIN_MESSAGE);
                         listString.add(show);
-                        wynikTextField.setText(String.valueOf(sum));
+                        wynikTextField.setText(String.valueOf(sumRounded));
                     //}
                     }
 
@@ -195,7 +199,7 @@ public class Exchange extends JFrame{
                 String queryToDeleteRow = "DELETE FROM currency_pairs.pairs_data WHERE \"id\" IN (" + rowToDelete + ");";
                 System.out.println("Running SQL query: " + queryToDeleteRow);
                 try {
-                    Statement stmt = con.createStatement();
+                    Statement stmt = ConnectionDetails.con.createStatement();
                     stmt.executeUpdate(queryToDeleteRow);
                     System.out.println("Pair ID:" + rowToDelete + " successfully deleted.");
                 } catch (SQLException ex) {
@@ -204,7 +208,7 @@ public class Exchange extends JFrame{
                 }
                 try {
 
-                    Statement st = con.createStatement();
+                    Statement st = ConnectionDetails.con.createStatement();
                     String query = "SELECT * FROM currency_pairs.pairs_data";
                     ResultSet rs = st.executeQuery(query);
                     ResultSetMetaData rsmd = rs.getMetaData();
@@ -228,6 +232,15 @@ public class Exchange extends JFrame{
                     throw new RuntimeException(exception);
                 }
 
+            }
+        });
+        databaseCrudEditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //indentacja twardą spacją zamiast JLabel w JOptionPane
+                String editMessage = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0" +
+                        "Nowe rekordy muszą być unikalne!\nAby dokonać edycji, usuń parę walut, po czym dodaj nowy rekord.";
+                JOptionPane.showMessageDialog(null, editMessage ,"Alert" , JOptionPane.PLAIN_MESSAGE);
             }
         });
     }
